@@ -8,7 +8,124 @@ O componente PandaPlayer aceita várias propriedades para personalizar e control
 
 - `src` (String): A URL do vídeo que você deseja reproduzir na Panda Video.
 
-- `queryParams` (Object): Um objeto contendo parâmetros de consulta opcionais a serem passados para o reprodutor de vídeo da Panda Video. Por exemplo, você pode definir opções de legendas, qualidade de vídeo, etc.
+- `queryParams` (Object): Um objeto contendo parâmetros de consulta opcionais a serem passados para o reprodutor de vídeo da Panda Video.
+
+  <table>
+  <thead>
+    <tr>
+      <th>Param</th>
+      <th>Type</th>
+      <th>Default</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>color</td>
+      <td>String</td>
+      <td>#4874F1</td>
+      <td>The primary color of the player</td>
+    </tr>
+    <tr>
+      <td>controlsColor</td>
+      <td>String</td>
+      <td>#FFF</td>
+      <td>The color of controls and menus</td>
+    </tr>
+    <tr>
+      <td>title</td>
+      <td>String</td>
+      <td>-</td>
+      <td>Video title</td>
+    </tr>
+    <tr>
+      <td>controls</td>
+      <td>String</td>
+      <td>play-large,play,progress,current-time,volume,captions,settings,pip,cast,fullscreen</td>
+      <td>A list of enabled controls</td>
+    </tr>
+    <tr>
+      <td>thumbnail</td>
+      <td>String</td>
+      <td>auto generated</td>
+      <td>Thumbnail URL</td>
+    </tr>
+    <tr>
+      <td>pauseThumbnail</td>
+      <td>String</td>
+      <td>generated on the frame it was paused on</td>
+      <td>Thumbnail URL (pause)</td>
+    </tr>
+    <tr>
+      <td>endThumbnail</td>
+      <td>String</td>
+      <td>last frame of video</td>
+      <td>Thumbnail URL (end)</td>
+    </tr>
+    <tr>
+      <td>watermark</td>
+      <td>String</td>
+      <td>-</td>
+      <td>The watermark that appears on the video</td>
+    </tr>
+    <tr>
+      <td>drm_group_id</td>
+      <td>String</td>
+      <td>-</td>
+      <td>Force use a watermark group</td>
+    </tr>
+    <tr>
+      <td>mutedIndicatorTextTop</td>
+      <td>String</td>
+      <td>-</td>
+      <td>Muted indicator text that appears at the top</td>
+    </tr>
+    <tr>
+      <td>mutedIndicatorTextBottom</td>
+      <td>String</td>
+      <td>-</td>
+      <td>Muted indicator text that appears at the bottom</td>
+    </tr>
+    <tr>
+      <td>saveProgressTitle</td>
+      <td>String</td>
+      <td>'Você já começou a assistir esse vídeo'</td>
+      <td>Title of the save progress page</td>
+    </tr>
+    <tr>
+      <td>saveProgressButton1Title</td>
+      <td>String</td>
+      <td>'Continuar assistindo'</td>
+      <td>Title of the first button on the save progress page</td>
+    </tr>
+    <tr>
+      <td>saveProgressButton2Title</td>
+      <td>String</td>
+      <td>'Voltar ao início'</td>
+      <td>Title of the second button on the save progress page</td>
+    </tr>
+  </tbody>
+</table>
+
+```javascript
+const playerOptions = {
+  color: "#FF5733",
+  controlsColor: "#000",
+  title: "Meu Vídeo",
+  controls: "play,progress,volume,fullscreen",
+  thumbnail: "https://example.com/thumbnail.jpg",
+  pauseThumbnail: "https://example.com/pause-thumbnail.jpg",
+  endThumbnail: "https://example.com/end-thumbnail.jpg",
+  watermark: "https://example.com/watermark.png",
+  drm_group_id: "example-drm-group",
+  mutedIndicatorTextTop: "Mudo",
+  mutedIndicatorTextBottom: "Volume está desativado",
+  saveProgressTitle: "Continue assistindo",
+  saveProgressButton1Title: "Continuar",
+  saveProgressButton2Title: "Recomeçar",
+};
+```
+
 
 - `fullscreen` (Boolean): Indica se o vídeo deve ser exibido em tela cheia ou não.
 
@@ -65,10 +182,6 @@ A função `pause()` pausa a reprodução do vídeo.
 ### `togglePlay()`
 
 A função `togglePlay()` alterna entre reprodução e pausa do vídeo.
-
-### `destroy()`
-
-A função `destroy()` remove e destrói o reprodutor de vídeo Panda Video do DOM. Use esta função quando não precisar mais do reprodutor.
 
 ### `increaseVolume(step)`
 
